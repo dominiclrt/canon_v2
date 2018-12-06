@@ -1,6 +1,7 @@
 var socket = io();
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
+let request = require('request')
 
 username = document.getElementById('username-field');
 username.addEventListener('keydown', function(event) {
