@@ -5,14 +5,23 @@ let request = require('request')
 
 username = document.getElementById('username-field');
 username.addEventListener('keydown', function(event) {
-	if(event.key == 'Enter') {
-		let value = username.value;
-		if(value != "") {
-			USER = value;
-			hideModal();
-			socket.emit('new-user', USER);
-		}
-	}
+  url_string = window.location.href
+  token = url_string.split("?t=")
+  if(token.length == 2){
+    USER = token[1];
+    hideModal();
+    socket.emit('new-user', USER);
+  }
+  else{
+    if(event.key == 'Enter') {
+      let value = username.value;
+      if(value != "") {
+        USER = value;
+        hideModal();
+        socket.emit('new-user', USER);
+      }
+    }
+  }
 });
 
 /*
