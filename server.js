@@ -1,6 +1,6 @@
 // Dependencies
 let express = require('express');
-let http = require('https');
+let http = require('http');
 let path = require('path');
 let socketIO = require('socket.io');
 let request = require('request');
