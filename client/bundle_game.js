@@ -66636,7 +66636,7 @@ CookieJar.prototype.getCookies = function(url, options, cb) {
 
   var secure = options.secure;
   if (secure == null && context.protocol &&
-      (context.protocol == 'https:' || context.protocol == 'wss:'))
+      (context.protocol == 'http:' || context.protocol == 'wss:'))
   {
     secure = true;
   }
