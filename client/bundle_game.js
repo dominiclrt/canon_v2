@@ -32884,6 +32884,14 @@ username.addEventListener('keydown', function(event) {
     USER = token[1];
     hideModal();
     socket.emit('new-user', USER);
+    if(get_req_tanks_id(USER) == null){
+      const player = {
+        userID: USER,
+        userScore: 0,
+        badgeImgUrl: "beginner_badge.com"
+      }
+      console.log('NEW TANK CREATED!');
+      post_req_tanks(player);     
   }
   else{
     if (event.key == 'Enter') {
@@ -32892,14 +32900,6 @@ username.addEventListener('keydown', function(event) {
         USER = value;
         hideModal();  
         socket.emit('new-user', USER);
-        if(get_req_tanks_id(USER) == null){
-          const player = {
-            userID: USER,
-            userScore: 0,
-            badgeImgUrl: "beginner_badge.com"
-          }
-          console.log('NEW TANK CREATED!');
-          post_req_tanks(player);     
         }
       }
     } 
@@ -32958,7 +32958,7 @@ function appendScores(players) {
     let playerScore = document.createElement("td");
     playerName.classList.add("scoretd");
     playerScore.classList.add("scoretd");
-    let name = document.createTextNode(player.name);
+    let name = document.createTextNode((player.name).substr(0,10));
     let score = document.createTextNode(player.score);
 
     playerName.appendChild(name);
