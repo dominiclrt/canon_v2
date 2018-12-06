@@ -335,6 +335,15 @@ io.on('connection', function(socket){
       correctPlayerPosition();
       let color = players[socket.id].color;
       tanks[color] = false;
+      player_from_api = JSON.parse(get_req_tanks_id(players[socket.id].name));
+      if(player_from_api.score > players[socket.id].score){
+              const player = {
+                userID: USER,
+                userScore: players[socket.id].score,
+                badgeImgUrl: "first_shot.com"
+              }
+              put_req_tanks(player, players[socket.id].name);
+    }
       delete players[socket.id];
     });
   });
