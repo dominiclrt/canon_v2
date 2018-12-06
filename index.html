@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <title>CANON</title>
+        <script src="/socket.io/socket.io.js"></script>
+
+        <!-- MASTER CSS -->
+        <link rel="stylesheet" href="/client/style.css">
+
+        <link rel="icon" href="/client/img/icon.ico">
+
+    </head>
+
+    <body id="main">
+
+        <div class="modal-backdrop">
+            <div class="modal">
+                <h1 id="username">WELCOME TO CANON</h1>
+                <p>To begin, enter a nickname</p>
+                <input type="text" id="username-field" placeholder="Please enter a nickname">
+            </div>
+        </div>
+
+        <div id="container">
+            <canvas id="canvas" tabindex="1"></canvas>
+
+            <div style="display: none">
+                <img id="brown" src="client/img/tank1.png">
+                <img id="red" src="client/img/tank2.png">
+                <img id="blue" src="client/img/tank3.png">
+                <img id="green" src="client/img/tank4.png">
+                <img id="pink" src="client/img/tank5.png">
+                <img id="orange" src="client/img/tank6.png">
+                <img id="purple" src="client/img/tank7.png">
+                <img id="white" src="client/img/tank8.png">
+                <img id="health1" src="client/img/health1.png">
+                <img id="health2" src="client/img/health2.png">
+                <img id="health3" src="client/img/health3.png">
+                <img id="explosion1" src="client/img/exp.png">
+            </div>
+
+            <div>
+                <h1 class="header">CANON <br/>KEYS: <br />W / A / S / D TO MOVE <br />SPACEBAR TO SHOOT <BR> CLICK THE GAME TO START MOVING!</h1>
+
+                <table id="scoreboard" class="score">
+                    <h2>SCORE BOARD</h2>
+                    <h3>NAME | KILLS</h3>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </body>
+
+    <script src="/client/game.js"></script>
+
+</html>

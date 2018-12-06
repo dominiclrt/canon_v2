@@ -1,0 +1,119 @@
+html {
+    font-family: Helvetica, sans-serif;
+    color: #f9f8eb;
+    background-color: #a7d7c5;
+}
+
+#container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#main {
+    text-align: center;
+    padding: 50px 100px 0 100px;
+}
+
+#canvas, .score {
+    border: solid #5c8d89 5px;
+    box-shadow: 0px 0px 5px 1px black;
+    margin: auto;
+}
+
+#canvas {
+    width: 1080px;
+    height: 720px;
+}
+
+.score{
+    width: 180px;
+}
+
+.scoretd, .scoreth{
+    padding: 8px;
+}
+
+#received-texts {
+    display: flex;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex-direction: column;
+    margin: 10px;
+}
+
+#input-field {
+    align-self: center;
+    margin: 10px;
+}
+
+.local, .remote {
+    text-align: left;
+    padding: 5px;
+    box-shadow: 0px 0px 3px 1px darkgrey;
+    border-radius: 4px;
+    margin: 7px;
+    width: 50%;
+    word-wrap: break-word;
+}
+
+.local {
+    align-self: flex-end;
+    background-color: rgba(137, 236, 255, 0.6);
+}
+
+.remote {
+    align-self: flex-start;
+    background-color: white;
+}
+
+.name {
+    color: #737373;
+    font-size: 12px;
+}
+
+.text {
+    color: black;
+}
+
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.85);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    z-index: 1010;
+    color: #f9f8eb;
+    text-align: center;
+    background-color: #5c8d89;
+    padding: 10px;
+    border-radius: 30px;
+    width: 20vw;
+    height: 30vh;
+}
+
+#username {
+    padding-top: 30px;
+    margin-bottom: 40px;
+}
+
+#username-field {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.header {
+    border: solid #f9f8eb 5px;
+}

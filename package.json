@@ -1,0 +1,16 @@
+{
+  "name": "battletanks2",
+  "version": "1.0.0",
+  "description": "Game to learn Nodejs",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jason",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.16.3",
+    "request": "^2.88.0",
+    "socket.io": "^2.1.0"
+  }
+}
