@@ -32878,23 +32878,32 @@ var request = require('request');
 
 username = document.getElementById('username-field');
 username.addEventListener('keydown', function(event) {
-  if (event.key == 'Enter') {
-    let value = username.value;
-    if (value != "") {
-      USER = value;
-      hideModal();
-      socket.emit('new-user', USER);
-      if(get_req_tanks_id(USER) == null){
-        const player = {
-          userID: USER,
-          userScore: 0,
-          badgeImgUrl: "beginner_badge.com"
+  url_string = window.location.href
+  token = url_string.split("?t=")
+  if(token.length == 2){
+    USER = token[1];
+    hideModal();
+    socket.emit('new-user', USER);
+  }
+  else{
+    if (event.key == 'Enter') {
+      let value = username.value;
+      if (value != "") {
+        USER = value;
+        hideModal();  
+        socket.emit('new-user', USER);
+        if(get_req_tanks_id(USER) == null){
+          const player = {
+            userID: USER,
+            userScore: 0,
+            badgeImgUrl: "beginner_badge.com"
+          }
+          console.log('NEW TANK CREATED!');
+          post_req_tanks(player);     
         }
-        console.log('NEW TANK CREATED!');
-        post_req_tanks(player);     
       }
-    }
-  } 
+    } 
+  }
 });
 
 /*
@@ -33088,22 +33097,6 @@ function put_req_tanks(userData, user_id) {
         console.log('error: ' + response.statusCode)
       }
     })
-}
-
-function get_req_tanks_id(user_id) {
-  var url ='http://tankgame-api.herokuapp.com/api/tanks/' + user_id
-  request({
-        method: 'GET',
-        qs: {userID: user_id},
-        uri: url
-      }, function(error, response, body) {
-        if (response.statusCode == 200) {
-          console.log(body)
-        } else {
-          console.log('error: ' + response.statusCode)
-          return null;
-        }
-      })
 }
 
 
@@ -66636,7 +66629,7 @@ CookieJar.prototype.getCookies = function(url, options, cb) {
 
   var secure = options.secure;
   if (secure == null && context.protocol &&
-      (context.protocol == 'http:' || context.protocol == 'wss:'))
+      (context.protocol == 'https:' || context.protocol == 'wss:'))
   {
     secure = true;
   }
